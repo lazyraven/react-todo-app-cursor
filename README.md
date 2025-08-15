@@ -201,3 +201,55 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Built with ❤️ using React**
+
+## Prompt
+## I wrote down this Prompt :
+- Create a fully functional To-Do List application using React.
+
+**Requirements:**
+
+1. **API Integration:**
+
+   - Fetch tasks from a mock or real API (e.g., JSONPlaceholder or a custom endpoint).
+
+   - Support CRUD operations (Create, Read, Update, Delete).
+
+2. **Component Structure:**
+
+   - Use reusable/common components such as TodoItem, TodoForm, and TodoList.
+
+   - Maintain a clean folder structure (components, services, styles).
+
+3. **Design & Styling:**
+
+   - Apply modern, responsive CSS (use plain CSS or CSS Modules).
+
+   - The UI should look clean and attractive with hover effects, spacing, and smooth animations  for adding/removing tasks.
+
+4. **Enhancements:**
+
+   - Implement a task filter (All, Completed, Pending).
+
+   - Add a search bar to quickly find tasks.
+
+   - Show a loading spinner while fetching data.
+
+   - Include a confirmation popup before deleting a task.
+
+5. **Code Quality:**
+
+  - Use React hooks (useState, useEffect).
+
+  - Write code that is well-commented and easy to understand.
+
+  - Ensure proper error handling for API calls.
+
+**Deliverables:**
+
+   - React code (JSX + CSS).
+
+   - Clear file/folder structure.
+
+   - Example API response for testing.
+
+   - Styled and fully functional in the browser.

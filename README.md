@@ -238,11 +238,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 5. **Code Quality:**
 
-  - Use React hooks (useState, useEffect).
+   - Use React hooks (useState, useEffect).
 
-  - Write code that is well-commented and easy to understand.
+   - Write code that is well-commented and easy to understand.
 
-  - Ensure proper error handling for API calls.
+   - Ensure proper error handling for API calls.
 
 **Deliverables:**
 

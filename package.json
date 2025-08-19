@@ -2,11 +2,12 @@
     "name": "todo-list-app",
     "version": "1.0.0",
     "description": "A fully functional To-Do List application with React",
-    "main": "index.js",
+    "main": "index.tsx",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
+        "typecheck": "tsc --noEmit",
         "eject": "react-scripts eject"
     },
     "dependencies": {
@@ -25,5 +26,10 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@types/react": "^19.1.10",
+        "@types/react-dom": "^19.1.7",
+        "typescript": "^5.9.2"
     }
 }

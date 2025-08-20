@@ -1,4 +1,4 @@
-import { Task, TodoUpdates } from '../types';
+import { Task, TodoUpdates, AuthState } from '../types';
 
 const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
 
@@ -11,6 +11,7 @@ const mockTasks: Task[] = [
 ];
 
 const STORAGE_KEY = 'todo_tasks';
+const AUTH_STORAGE_KEY = 'auth_state';
 
 const getTasksFromStorage = (): Task[] => {
     try {
@@ -33,15 +34,44 @@ const saveTasksToStorage = (tasks: Task[]): void => {
 class TodoAPI {
     private tasks: Task[];
     private nextId: number;
+    private auth: AuthState;
 
     constructor() {
         this.tasks = getTasksFromStorage();
         this.nextId = Math.max(...this.tasks.map(task => task.id), 0) + 1;
+        this.auth = this.getAuthFromStorage();
+    }
+
+    private getAuthFromStorage(): AuthState {
+        try {
+            const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+            return raw ? (JSON.parse(raw) as AuthState) : { user: null, token: null };
+        } catch (error) {
+            console.error('Error reading auth from localStorage:', error);
+            return { user: null, token: null };
+        }
+    }
+
+    private saveAuthToStorage(auth: AuthState): void {
+        try {
+            localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(auth));
+        } catch (error) {
+            console.error('Error saving auth to localStorage:', error);
+        }
+    }
+
+    setAuthState(auth: AuthState) {
+        this.auth = auth;
+        this.saveAuthToStorage(auth);
     }
 
     async getTasks(): Promise<Task[]> {
         try {
-            const response = await fetch(`${API_BASE_URL}/todos?_limit=10`);
+            const response = await fetch(`${API_BASE_URL}/todos?_limit=10`, {
+                headers: {
+                    ...(this.auth.token ? { Authorization: `Bearer ${this.auth.token}` } : {}),
+                },
+            });
             if (response.ok) {
                 const apiTasks: Task[] = await response.json();
                 const localTasks = this.tasks.filter(task => task.id > 100);
@@ -60,13 +90,16 @@ class TodoAPI {
             id: this.nextId++,
             title: title.trim(),
             completed: false,
-            userId: 1,
+            userId: this.auth.user?.id ?? 1,
         };
 
         try {
             const response = await fetch(`${API_BASE_URL}/todos`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(this.auth.token ? { Authorization: `Bearer ${this.auth.token}` } : {}),
+                },
                 body: JSON.stringify(newTask),
             });
             if (response.ok) {
@@ -93,7 +126,10 @@ class TodoAPI {
         try {
             const response = await fetch(`${API_BASE_URL}/todos/${id}`, {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(this.auth.token ? { Authorization: `Bearer ${this.auth.token}` } : {}),
+                },
                 body: JSON.stringify(updatedTask),
             });
             if (!response.ok) {
@@ -113,7 +149,12 @@ class TodoAPI {
             throw new Error('Task not found');
         }
         try {
-            const response = await fetch(`${API_BASE_URL}/todos/${id}`, { method: 'DELETE' });
+            const response = await fetch(`${API_BASE_URL}/todos/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    ...(this.auth.token ? { Authorization: `Bearer ${this.auth.token}` } : {}),
+                },
+            });
             if (!response.ok) {
                 throw new Error('Server delete failed');
             }

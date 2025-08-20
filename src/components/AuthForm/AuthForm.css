@@ -1,0 +1,149 @@
+.auth-section {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.auth-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.auth-header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 520px;
+    background: #ffffff;
+    border: 1px solid #eef2f7;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    padding: 1.25rem;
+}
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 1rem;
+}
+
+.auth-tab {
+    border: none;
+    background: transparent;
+    padding: 0.6rem 0.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.auth-tab.active {
+    background: #ffffff;
+    color: #111827;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.auth-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.input {
+    padding: 0.75rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    outline: none;
+    background: #fff;
+}
+
+.input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+.password-field {
+    position: relative;
+}
+
+.toggle-visibility {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.password-meter {
+    height: 6px;
+    background: #eef2f7;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.password-meter>span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #f87171, #fbbf24, #34d399, #10b981);
+    transition: width 0.25s ease;
+}
+
+.auth-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.helper {
+    font-size: 0.85rem;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.error-text {
+    color: #ef4444;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 1rem;
+    }
+
+    .auth-actions {
+        grid-template-columns: 1fr;
+    }
+}

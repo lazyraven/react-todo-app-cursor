@@ -14,3 +14,24 @@ export interface TodoUpdates {
     completed?: boolean;
 }
 
+
+// Auth types
+export interface AuthUser {
+    id: number;
+    name: string;
+    email: string;
+}
+
+export interface AuthCredentials {
+    email: string;
+    password: string;
+}
+
+export interface SignupData extends AuthCredentials {
+    name: string;
+}
+
+export interface AuthState {
+    user: AuthUser | null;
+    token: string | null;
+}

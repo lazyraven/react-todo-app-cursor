@@ -7,8 +7,11 @@ import ConfirmationModal from './components/ConfirmationModal/ConfirmationModal'
 import todoAPI from './services/api';
 import { FilterType, Task, TodoUpdates } from './types';
 import './App.css';
+import { useAuth } from './contexts/AuthContext';
+import AuthForm from './components/AuthForm/AuthForm';
 
 function App() {
+    const { user, logout, initializing } = useAuth();
     const [tasks, setTasks] = useState<Task[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -19,8 +22,12 @@ function App() {
     const [actionLoading, setActionLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        loadTasks();
-    }, []);
+        if (user) {
+            loadTasks();
+        } else {
+            setTasks([]);
+        }
+    }, [user]);
 
     const loadTasks = async () => {
         try {
@@ -123,6 +130,20 @@ function App() {
     const totalTasks = tasks.length;
     const completedTasks = tasks.filter(task => task.completed).length;
 
+    if (!user) {
+        return (
+            <div className="app">
+                <div className="container">
+                    <header className="app-header">
+                        <h1>📋 Todo List</h1>
+                        <p>Stay organized and boost your productivity</p>
+                    </header>
+                    <AuthForm />
+                </div>
+            </div>
+        );
+    }
+
     if (error) {
         return (
             <div className="app">
@@ -145,6 +166,10 @@ function App() {
                 <header className="app-header">
                     <h1>📋 Todo List</h1>
                     <p>Stay organized and boost your productivity</p>
+                    <div style={{ marginTop: 8 }}>
+                        <span style={{ marginRight: 12 }}>Signed in as <strong>{user?.name}</strong></span>
+                        <button className="btn btn-secondary" onClick={() => logout()}>Sign out</button>
+                    </div>
                 </header>
 
                 <main className="app-main">

@@ -1,6 +1,8 @@
-# 📋 React Todo App - Complete Guide
+# 📋 React Todo App - Complete Guide | [React Todo App](https://lazyraven.github.io/react-todo-app-cursor/)
 
 A fully functional, modern Todo List application built with React 18, TypeScript, and modern web technologies. This application demonstrates best practices in React development, including component architecture, state management, API integration, and responsive design.
+
+ 
 
 ![React Todo App](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue?logo=typescript)

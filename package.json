@@ -8,7 +8,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "typecheck": "tsc --noEmit",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "react": "^18.2.0",
@@ -32,5 +34,6 @@
         "@types/react-dom": "^19.1.7",
         "gh-pages": "^6.3.0",
         "typescript": "^5.9.2"
-    }
+    },
+    "homepage": "https://lazyraven.github.io/react-todo-app-cursor/"
 }

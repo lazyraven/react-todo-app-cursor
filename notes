@@ -1,0 +1,9 @@
+
+For manually deployment :
+
+checkout this branch > license-integrated
+run the command  > npm run deploy 
+go to github > repo > pages > added gh-pages branch and save
+
+now this will work 
+(https://lazyraven.github.io/react-todo-app-cursor/)

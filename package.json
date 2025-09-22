@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A fully functional To-Do List application with React",
     "main": "index.tsx",
+    "homepage": "https://lazyraven.github.io/react-todo-app-cursor/",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
@@ -31,6 +32,5 @@
         "@types/react": "^19.1.10",
         "@types/react-dom": "^19.1.7",
         "typescript": "^5.9.2"
-    },
-    "homepage": "https://lazyraven.github.io/react-todo-app-cursor/"
+    }
 }

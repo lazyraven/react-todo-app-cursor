@@ -1,9 +1,5 @@
 # 📋 React Todo App - Complete Guide | [React Todo App](https://lazyraven.github.io/react-todo-app-cursor/)
 
-A fully functional, modern Todo List application built with React 18, TypeScript, and modern web technologies. This application demonstrates best practices in React development, including component architecture, state management, API integration, and responsive design.
-
- 
-
 ![React Todo App](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue?logo=typescript)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -787,4 +783,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## I write down this prompt give me a crash course on  @https://github.com/lazyraven/react-todo-app-cursor 
 use mermain diagrams and markdown tables, It give me this result in Readme file
+
+Description :
+Yes, I’ve built a To-Do List application in React with TypeScript, which includes signup and login functionality using LocalStorage. I deployed it on GitHub Pages. For development, I used AI Cursor to generate initial code snippets through prompts, and then I refined and enhanced the project further to improve features and structure. This gave me hands-on experience in using GenAI as a coding assistant while still applying my own problem-solving and development skills. The project is live here [[demo link](https://lazyraven.github.io/react-todo-app-cursor/)], and the source code is available on GitHub [[repo link](https://github.com/lazyraven/react-todo-app-cursor)].
 
